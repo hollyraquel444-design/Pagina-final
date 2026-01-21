@@ -1,0 +1,270 @@
+:root {
+  --pink-bg: #f8d7d4;       /* Color rosa de las tarjetas */
+  --header-gray: #e0e0e0;   /* Gris de los títulos retro */
+  --border-color: #000;
+  --dot-color: #dcdcdc;     /* Color de los puntos del fondo */
+  --nav-bg: #f9f9f9;
+}
+
+/* Busca esta parte que ya tenías y agrega la línea nueva */
+.hero-banner img {
+  width: 60%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;  
+  display: block;
+}
+
+body {
+  margin: 0;
+  background-color: #fff;
+  /* Patrón de puntos para el fondo exterior */
+  background-image: radial-gradient(var(--dot-color) 15%, transparent 16%);
+  background-size: 15px 15px; 
+  font-family: 'Arial', sans-serif;
+  padding: 20px 0;
+  min-height: 100vh;
+}
+
+/* === CONTENEDOR PRINCIPAL (El Cuadro) === */
+.main-wrapper {
+  max-width: 830px; 
+  width: 90%;       /* Para móviles, ocupa el 90% */
+  margin: 0 auto;   
+  background: #fff;
+  border: 2px dashed var(--border-color); /* Borde punteado estilo Melody */
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05); /* Sombra sutil para despegarlo del fondo */
+}
+
+/* === MENÚ SUPERIOR === */
+.inner-nav {
+  background: var(--nav-bg);
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
+  text-align: center;
+}
+
+.inner-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  margin: 0 10px; /* Espacio entre enlaces */
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.inner-nav a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+/* === TÍTULO PRINCIPAL === */
+.hero-title {
+  text-align: center;
+  padding: 30px 20px 10px 20px;
+}
+
+.hero-title h1 {
+  font-family: "Times New Roman", serif;
+  font-style: italic;
+  font-size: 2.2rem;
+  margin: 0;
+}
+
+/* === CAJAS RETRO (Bio) === */
+.retro-box {
+  border: 1px solid var(--border-color);
+  margin: 30px; /* Margen interno para separarlo del borde grande */
+  background: #fff;
+}
+
+.box-header {
+  background: var(--header-gray);
+  margin: 0;
+  padding: 10px;
+  font-size: 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  font-weight: bold;
+  color: #444;
+}
+
+.box-content {
+  padding: 20px;
+}
+
+.bio-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+/* === SECCIÓN MODERNA (Proyectos) === */
+.modern-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 40px 0 30px 0;
+  font-family: serif;
+}
+
+.cards-container {
+  display: flex;
+  gap: 20px;
+  padding: 0 30px;
+  margin-bottom: 50px;
+  flex-wrap: wrap; /* Para que se adapte si es muy angosto */
+}
+
+.modern-card {
+  background: var(--pink-bg);
+  flex: 1;
+  padding: 30px 25px;
+  border-radius: 30px; /* Bordes muy redondeados */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 250px;
+}
+
+.modern-card h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  font-family: serif;
+}
+
+.link-btn {
+  text-decoration: underline;
+  color: #000;
+  font-weight: bold;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+/* === FORMULARIO (Suscripción) === */
+.subscription-section {
+  background: var(--pink-bg);
+  margin: 30px;
+  padding: 40px;
+  border-radius: 40px;
+  text-align: center;
+}
+
+.sub-form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.input-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrap label {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box; /* Asegura que el padding no rompa el ancho */
+}
+
+.btn-send {
+  background: #f19584; /* Color salmón oscuro */
+  border: 1px solid #333;
+  padding: 12px 50px;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.btn-send:hover {
+  background: #e07b68;
+}
+
+.hidden { display: none; text-align: center; color: green; margin-top: 15px; font-weight: bold;}
+
+/* === FOOTER === */
+.main-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  background: #fdf5ef;
+  font-size: 0.85rem;
+  border-top: 1px solid #eee;
+}
+
+.footer-left, .footer-center, .footer-right {
+  flex: 1;
+}
+
+.footer-center { text-align: center; }
+.footer-right { text-align: right; }
+
+/* Responsive para celular */
+@media (max-width: 600px) {
+  .cards-container { flex-direction: column; }
+  .form-group { flex-direction: column; }
+  .main-footer { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-center, .footer-right { text-align: center; }
+}
+
+/* === CAJA INTERNA SIMPLE === */
+.mini-box {
+  background: #ffffff;
+  border: 1px dashed var(--pink-accent); /* Borde rosa punteado */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+/* === CAJA CON SCROLL (Para mucho texto) === */
+.scroll-box {
+  background: #f0ffff; /* Fondo cian muy clarito */
+  border: 2px inset var(--cyan-main); /* Borde estilo "hundido" */
+  height: 100px; /* Altura fija */
+  overflow-y: scroll; /* Activa la barrita de desplazamiento */
+  padding: 8px;
+  margin: 10px 0;
+  font-size: 0.8rem;
+}
+
+/* Personalizar la barra de scroll (Solo Chrome/Edge/Safari) */
+.scroll-box::-webkit-scrollbar {
+  width: 8px;
+}
+.scroll-box::-webkit-scrollbar-thumb {
+  background: var(--pink-accent);
+  border-radius: 4px;
+}
