@@ -1,0 +1,255 @@
+:root {
+  --pink-bg: #f8d7d4;
+  --header-gray: #e0e0e0;
+  --border-color: #000;
+  --dot-color: #dcdcdc;
+  --nav-bg: #f9f9f9;
+  --pink-accent: #ff69b4;
+  --miku-teal: #66cccc;       
+  --miku-teal-dark: #55aaaa;
+  --miku-pink-text: #ff99cc;
+}
+
+/* ==========================================================================
+   1. BASE MOBILE-FIRST (0px - 575px)
+   Rúbrica: Diseño para móviles, 1 columna, Touch Targets > 44px
+   ========================================================================== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; /* Tipografía base */ }
+
+body {
+  background-color: #fff;
+  background-image: radial-gradient(var(--dot-color) 15%, transparent 16%);
+  background-size: 15px 15px; 
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Imágenes responsivas (Rúbrica: No exceder ancho pantalla) */
+img { max-width: 100%; height: auto; }
+
+/* Contenedor Fluido */
+.main-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  display: flex;
+  flex-direction: column; /* Móvil: Todo en vertical */
+  overflow-x: hidden;
+}
+
+/* --- MENÚ HAMBURGUESA (Móvil) --- */
+.nav-container {
+  background: var(--nav-bg);
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  position: relative;
+}
+
+.nav-toggle {
+  display: block; /* Visible en móvil */
+  width: 100%;
+  padding: 15px 20px; /* Touch target grande */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  text-align: right;
+  cursor: pointer;
+  color: var(--miku-teal-dark);
+}
+
+.inner-nav {
+  display: none; /* Oculto por defecto */
+  flex-direction: column;
+  background: var(--nav-bg);
+  border-top: 1px solid #eee;
+}
+
+.inner-nav.active { display: flex; /* Se activa con JS */ }
+
+.inner-nav a {
+  padding: 15px; /* Rúbrica: Min 44px height */
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+  display: block;
+}
+
+.inner-nav a:hover, .inner-nav a.active-page {
+  background: var(--pink-bg);
+}
+
+/* --- CONTENIDO --- */
+.content-area { flex-grow: 1; width: 100%; }
+
+.hero-banner {
+  background-color: var(--pink-bg);
+  padding: 10px 0;
+  text-align: center;
+  border-bottom: 2px dashed var(--border-color);
+}
+
+.hero-title { text-align: center; padding: 20px; }
+
+/* --- GRIDS (Móvil: 1 Columna) --- */
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 Columna */
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Grid Perfil Miku (Móvil: 1 Columna) */
+.miku-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  padding: 20px;
+}
+
+/* Estilos de tus Cajas (Miku/Retro) */
+.miku-box { background: #fff; border: 2px solid var(--miku-teal); padding: 10px; height: 100%; }
+.miku-main-header { background: var(--miku-teal); color: white; padding: 8px; font-weight: bold; text-align: center; border: 2px solid var(--miku-teal-dark); }
+.miku-profile-img { width: 150px; border: 2px solid var(--miku-teal); margin: 0 auto; display: block;}
+.modern-card { background: var(--pink-bg); padding: 20px; border-radius: 15px; border: 1px solid #eea2ad; }
+
+/* --- FORMULARIO (Móvil: Inputs Full Width) --- */
+.subscription-section { padding: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 15px; margin-bottom: 15px; }
+input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; }
+.btn-send { width: 100%; padding: 15px; background: var(--miku-teal); border: none; color: white; border-radius: 5px; font-size: 1rem; cursor: pointer; }
+
+/* --- FOOTER (Móvil: Vertical) --- */
+.main-footer {
+  padding: 20px;
+  background: #fdf5ef;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ==========================================================================
+   2. BREAKPOINT PEQUEÑO (576px - 767px)
+   Rúbrica: Ajustes menores
+   ========================================================================== */
+@media (min-width: 576px) {
+  .main-wrapper {
+    width: 95%; /* Un poco más de margen a los lados */
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+}
+
+/* ==========================================================================
+   3. BREAKPOINT TABLET (768px - 991px)
+   Rúbrica: Menú Horizontal, Grid 2 Columnas, Formulario Agrupado
+   ========================================================================== */
+@media (min-width: 768px) {
+  
+  html { font-size: 17px; /* Tipografía ligeramente más grande */ }
+
+  /* MENÚ: Pasa a Horizontal (Compacto) */
+  .nav-toggle { display: none; } /* Adiós hamburguesa */
+  
+  .inner-nav {
+    display: flex;
+    flex-direction: row; /* Horizontal */
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .inner-nav a {
+    border-bottom: none;
+    padding: 20px 25px;
+  }
+
+  /* GRIDS: 2 Columnas */
+  .cards-container { grid-template-columns: 1fr 1fr; }
+  
+  /* Perfil: Layout de 2 columnas (Izquierda + Centro/Derecha combinados) */
+  .miku-layout-grid { grid-template-columns: 1fr 1fr; }
+
+  /* FORMULARIO: Agrupación inteligente */
+  .form-group { flex-direction: row; } /* Inputs lado a lado */
+}
+
+/* ==========================================================================
+   4. BREAKPOINT DESKTOP (992px - 1199px)
+   Rúbrica: Navegación Visible (Sidebar), Grid 3 Columnas, Hover Effects
+   ========================================================================== */
+@media (min-width: 992px) {
+  
+  /* LAYOUT: Múltiples columnas (Sidebar Izquierda + Contenido Derecha) */
+  .main-wrapper {
+    flex-direction: row; /* Uso eficiente del espacio horizontal */
+    max-width: 98%;
+    margin: 20px auto;
+    border: 2px dashed var(--border-color);
+    border-radius: 20px;
+  }
+
+  /* MENÚ: Sidebar Izquierda */
+  .nav-container {
+    width: 240px; /* Ancho fijo */
+    min-height: 100vh;
+    border-right: 2px dashed var(--border-color);
+    border-bottom: none;
+    flex-shrink: 0;
+  }
+
+  .inner-nav {
+    flex-direction: column; /* Vertical */
+    padding-top: 40px;
+  }
+
+  /* Efectos Hover Interactivos */
+  .inner-nav a:hover {
+    padding-left: 30px; /* Desplazamiento visual */
+    background: var(--pink-bg);
+    transition: 0.3s;
+  }
+  
+  .modern-card:hover { transform: translateY(-5px); transition: 0.3s; }
+
+  /* GRIDS: 3 Columnas */
+  .cards-container { grid-template-columns: repeat(3, 1fr); }
+
+  /* Perfil: 3 Columnas (Estilo Miku original) */
+  .miku-layout-grid {
+    grid-template-columns: 200px 1fr 200px; /* Izq | Centro | Der */
+    align-items: start;
+  }
+
+  /* FOOTER: Horizontal */
+  .main-footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ==========================================================================
+   5. BREAKPOINT EXTRA LARGE (1200px+)
+   Rúbrica: Contenedores fluidos con max-width apropiados
+   ========================================================================== */
+@media (min-width: 1200px) {
+  .main-wrapper {
+    max-width: 1400px; /* Tope máximo para pantallas muy grandes */
+  }
+
+  .miku-layout-grid {
+    gap: 25px; /* Más espaciado entre elementos */
+  }
+}
+
+/* UTILS */
+.pixel-divider { display: block; margin: 15px auto; max-width: 100%; }
+.friends-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; }
+.friend-placeholder { height: 50px; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; }
+.likes-dislikes-container { display: flex; gap: 10px; margin-top: 15px; border-top: 1px dotted var(--miku-teal); padding-top: 10px; }
+.ld-col { flex: 1; }
+.ld-col ul { list-style: none; padding-left: 5px; }
